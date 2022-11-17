@@ -1,6 +1,6 @@
 const App = () => {
   const calculateCurrentUrl = (): string =>
-    `${globalThis.location.href}/api/stream`;
+    `${globalThis.location.href}api/stream`;
 
   return (
     <video controls>
