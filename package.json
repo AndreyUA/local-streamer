@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start:server": "node .",
-    "start:app": "cd app && npm run dev"
+    "start:app": "cd app && npm run dev",
+    "start:env": "lt --port 3000 --subdomain cinema"
   },
   "repository": {
     "type": "git",
