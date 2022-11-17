@@ -21,7 +21,6 @@
   "homepage": "https://github.com/AndreyUA/local-streamer#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
-    "connect-busboy": "^1.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "localtunnel": "^2.0.2",

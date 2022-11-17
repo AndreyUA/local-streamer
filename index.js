@@ -3,7 +3,6 @@ import { fileURLToPath } from "url";
 import express from "express";
 import morgan from "morgan";
 import bodyParser from "body-parser";
-import busboy from "connect-busboy";
 import cors from "cors";
 
 import routes from "./routes/index.js";
