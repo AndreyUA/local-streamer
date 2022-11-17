@@ -1,31 +1,51 @@
+import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 
 const stream = (req, res, next) => {
-  const video = "./videos/mk.mp4";
-  const statistics = fs.statSync(video);
   const range = req.headers.range;
+  const videoArr = [];
 
-  if (range) {
-    let [start, end] = range.replace(/bytes=/, "").split("-");
-    start = parseInt(start, 10);
-    end = end ? parseInt(end, 10) : statistics.size - 1;
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const directoryPath = path.join(__dirname, "../videos");
 
-    res.writeHead(206, {
-      "Content-Range": `bytes ${start}-${end}/${statistics.size}`,
-      "Accept-Ranges": "bytes",
-      "Content-Length": end - start + 1,
-      "Content-Type": "video/mp4",
+  // Scan all video files
+  fs.readdir(directoryPath, function (error, files) {
+    if (error) {
+      return console.log("Unable to scan directory: " + error);
+    }
+
+    files.forEach((fileName) => {
+      videoArr.push(`./videos/${fileName}`);
     });
 
-    fs.createReadStream(video, { start, end }).pipe(res);
-  } else {
-    res.writeHead(200, {
-      "Content-Length": statistics.size,
-      "Content-Type": "video/mp4",
-    });
+    // Set current video
+    const currentVideo = videoArr[1];
 
-    fs.createReadStream(video).pipe(res);
-  }
+    if (range) {
+      const statistics = fs.statSync(currentVideo);
+      let [start, end] = range.replace(/bytes=/, "").split("-");
+      start = parseInt(start, 10);
+      end = end ? parseInt(end, 10) : statistics.size - 1;
+
+      res.writeHead(206, {
+        "Content-Range": `bytes ${start}-${end}/${statistics.size}`,
+        "Accept-Ranges": "bytes",
+        "Content-Length": end - start + 1,
+        "Content-Type": "video/mp4",
+      });
+
+      fs.createReadStream(currentVideo, { start, end }).pipe(res);
+    } else {
+      res.writeHead(200, {
+        "Content-Length": statistics.size,
+        "Content-Type": "video/mp4",
+      });
+
+      fs.createReadStream(currentVideo).pipe(res);
+    }
+  });
 };
 
 export default {
