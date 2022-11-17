@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start:server": "node .",
+    "start:server": "nodemon node .",
     "start:app": "cd app && npm run dev",
     "start:env": "lt --port 3000 --subdomain cinema"
   },
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.5.0",
-    "just-wait": "^1.0.11"
+    "just-wait": "^1.0.11",
+    "nodemon": "^2.0.20"
   }
 }
