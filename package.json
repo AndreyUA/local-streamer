@@ -1,0 +1,30 @@
+{
+  "name": "local-streamer",
+  "version": "1.0.0",
+  "description": "home video streamer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyUA/local-streamer.git"
+  },
+  "author": "Andrii Zhyhariev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyUA/local-streamer/issues"
+  },
+  "homepage": "https://github.com/AndreyUA/local-streamer#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "connect-busboy": "^1.0.0",
+    "express": "^4.18.2",
+    "localtunnel": "^2.0.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0",
+    "just-wait": "^1.0.11"
+  }
+}
