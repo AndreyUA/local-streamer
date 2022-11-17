@@ -27,7 +27,7 @@ app.use("/api", routes);
 // Static content for root URL
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.resolve(__dirname + "/dist")));
+app.use(express.static(path.resolve(__dirname + "/app/dist")));
 app.get("/", (_req, res) => {
   res.sendFile(path.resolve(__dirname, "/index.html"));
 });
