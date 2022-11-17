@@ -1,11 +1,9 @@
 import fs from "fs";
 
-const stream = async (req, res, next) => {
+const stream = (req, res, next) => {
   const video = "./videos/mk.mp4";
   const statistics = fs.statSync(video);
   const range = req.headers.range;
-
-  console.log("range", range);
 
   if (range) {
     let [start, end] = range.replace(/bytes=/, "").split("-");

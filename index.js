@@ -11,11 +11,17 @@ const PORT = 3000;
 
 const app = express();
 
+// Logger
 app.use(morgan("dev"));
+
+// Body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Enable all CORS requests
 app.use(cors());
 
+// All routes
 app.use("/api", routes);
 
 // Static content for root URL
