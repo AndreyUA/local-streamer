@@ -1,6 +1,11 @@
 const App = () => {
-  const calculateCurrentUrl = (): string =>
-    `${globalThis.location.href}api/stream`;
+  const calculateCurrentUrl = (): string => {
+    if (process.env.NODE_ENV === "production") {
+      return `${globalThis.location.href}api/stream`;
+    }
+
+    return "http://localhost:3000/api/stream";
+  };
 
   return (
     <video controls>
