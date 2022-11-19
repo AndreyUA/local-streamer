@@ -24,7 +24,7 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            Home stream service
+            Home stream service&nbsp;
             <FavoriteIcon />
           </Typography>
         </Toolbar>
