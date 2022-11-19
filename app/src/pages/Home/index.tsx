@@ -39,7 +39,7 @@ const Home = () => {
             <ListItem key={index}>
               <ListItemButton onClick={() => navigateToVideo(index)}>
                 <ListItemIcon>
-                  <TheatersIcon fontSize="large" />
+                  <TheatersIcon fontSize="large" color="secondary" />
                 </ListItemIcon>
                 <ListItemText primary={video} />
               </ListItemButton>
@@ -54,7 +54,7 @@ const Home = () => {
           <ListItem>
             <ListItemButton>
               <ListItemIcon>
-                <SettingsAccessibilityIcon fontSize="large" />
+                <SettingsAccessibilityIcon fontSize="large" color="secondary" />
               </ListItemIcon>
               <ListItemText primary="I haven't any film." />
             </ListItemButton>
