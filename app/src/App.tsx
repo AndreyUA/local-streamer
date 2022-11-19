@@ -1,18 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 
+import Wrapper from "./components/Wrapper";
 import Home from "./pages/Home";
 import Player from "./pages/Player";
-import Header from "./components/Header";
 
 const App = () => {
   return (
-    <>
-      <Header />
+    <Wrapper>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/player/:id" element={<Player />} />
       </Routes>
-    </>
+    </Wrapper>
   );
 };
 
