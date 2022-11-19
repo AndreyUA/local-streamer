@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import calculateCurrentUrl from "../utils/calculateCurrentUrl";
+import calculateCurrentUrl from "../../utils/calculateCurrentUrl";
 
 const Home = () => {
   const [videos, setVideos] = useState<Array<String>>([]);

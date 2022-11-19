@@ -3,8 +3,8 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
 
 const StyledPaper = styled(Paper)`
   display: flex;

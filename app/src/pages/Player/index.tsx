@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import calculateCurrentUrl from "../utils/calculateCurrentUrl";
+import calculateCurrentUrl from "../../utils/calculateCurrentUrl";
 
 const Player = () => {
   const { id } = useParams();
