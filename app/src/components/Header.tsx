@@ -1,12 +1,17 @@
+import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+const StyledBox = styled(Box)`
+  flex: 0 1 auto;
+`;
+
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <StyledBox>
       <AppBar position="static">
         <Toolbar>
           <Typography
@@ -24,7 +29,7 @@ const Header = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-    </Box>
+    </StyledBox>
   );
 };
 
