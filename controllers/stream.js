@@ -7,6 +7,10 @@ const __dirname = path.dirname(__filename);
 const directoryPath = path.join(__dirname, "../videos");
 
 const stream = (req, res, next) => {
+  // TODO: add error handling
+  // ! if videoId < 1 && videoId > videoArr.length
+  const videoId = +req.params.id + 1;
+
   const range = req.headers.range;
   const videoArr = [];
 
@@ -21,7 +25,7 @@ const stream = (req, res, next) => {
     });
 
     // Set current video
-    const currentVideo = videoArr[1];
+    const currentVideo = videoArr[videoId];
 
     if (range) {
       const statistics = fs.statSync(currentVideo);
