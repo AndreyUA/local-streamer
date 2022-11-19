@@ -1,15 +1,9 @@
+import calculateCurrentUrl from "../utils/calculateCurrentUrl";
+
 const Player = () => {
-  const calculateCurrentUrl = (): string => {
-    if (process.env.NODE_ENV === "production") {
-      return `${globalThis.location.href}api/stream`;
-    }
-
-    return "http://localhost:3000/api/stream";
-  };
-
   return (
     <video controls>
-      <source src={calculateCurrentUrl()} type="video/mp4"></source>
+      <source src={`${calculateCurrentUrl()}/stream`} type="video/mp4"></source>
     </video>
   );
 };
