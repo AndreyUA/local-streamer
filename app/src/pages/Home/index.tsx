@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
+import SettingsAccessibilityIcon from "@mui/icons-material/SettingsAccessibility";
 
 import calculateCurrentUrl from "../../utils/calculateCurrentUrl";
 
@@ -29,20 +30,38 @@ const Home = () => {
     getAllVideos();
   }, []);
 
-  // TODO: add loading (videos.length === 0 OR videos.length > 0)
   return (
-    <List>
-      {videos.map((video, index) => (
-        <ListItem key={index}>
-          <ListItemButton onClick={() => navigateToVideo(index)}>
-            <ListItemIcon>
-              <TheatersIcon fontSize="large" />
-            </ListItemIcon>
-            <ListItemText primary={video} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      {/* Non empty array of films */}
+      {videos.length > 0 && (
+        <List>
+          {videos.map((video, index) => (
+            <ListItem key={index}>
+              <ListItemButton onClick={() => navigateToVideo(index)}>
+                <ListItemIcon>
+                  <TheatersIcon fontSize="large" />
+                </ListItemIcon>
+                <ListItemText primary={video} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      )}
+
+      {/* Empty array of films */}
+      {videos.length === 0 && (
+        <List>
+          <ListItem>
+            <ListItemButton>
+              <ListItemIcon>
+                <SettingsAccessibilityIcon fontSize="large" />
+              </ListItemIcon>
+              <ListItemText primary="I haven't any film." />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      )}
+    </>
   );
 };
 
