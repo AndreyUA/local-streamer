@@ -12,7 +12,8 @@
     "timeout": "node -e \"require('node:timers/promises').setTimeout(5_000)\"",
     "start:all:dev": "concurrently \"npm run start:server:dev\" \"npm run start:app:dev\"",
     "build:app": "cd app && npm run build",
-    "start": "NODE_ENV=production npm run start:server & npm run timeout && npm run start:env"
+    "start:online": "NODE_ENV=production npm run start:server & npm run timeout && npm run start:env",
+    "start:local": "NODE_ENV=production NODE_MODE=local npm run start:server"
   },
   "repository": {
     "type": "git",

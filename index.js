@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 import routes from "./routes/index.js";
+import getMyLocalIpAddress from "./utils/getMyLocalIpAddress.js";
 
 const PORT = 3000;
 
@@ -35,4 +36,10 @@ app.get("/", (_req, res) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is started on port ${PORT}`);
+
+  if (process.env.NODE_MODE === "local") {
+    const IPv4Port = getMyLocalIpAddress();
+
+    console.log(`\nyour url is: ${IPv4Port}:3000`);
+  }
 });
