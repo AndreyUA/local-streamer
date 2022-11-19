@@ -2,16 +2,16 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const directoryPath = path.join(__dirname, "../videos");
+
 const stream = (req, res, next) => {
   const range = req.headers.range;
   const videoArr = [];
 
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
-  const directoryPath = path.join(__dirname, "../videos");
-
   // Scan all video files
-  fs.readdir(directoryPath, function (error, files) {
+  fs.readdir(directoryPath, (error, files) => {
     if (error) {
       return console.log("Unable to scan directory: " + error);
     }
@@ -48,6 +48,19 @@ const stream = (req, res, next) => {
   });
 };
 
+const getAllFiles = (req, res, next) => {
+  fs.readdir(directoryPath, (error, files) => {
+    if (error) {
+      return console.log("Unable to scan directory: " + error);
+    }
+
+    files.shift();
+
+    res.send(files);
+  });
+};
+
 export default {
+  getAllFiles,
   stream,
 };
