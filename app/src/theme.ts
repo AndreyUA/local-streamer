@@ -2,7 +2,7 @@ import {
   Experimental_CssVarsProvider as CssVarsProvider,
   experimental_extendTheme as extendTheme,
 } from "@mui/material/styles";
-import { deepPurple, common, purple } from "@mui/material/colors";
+import { deepPurple, purple } from "@mui/material/colors";
 
 const theme = extendTheme({
   colorSchemes: {
@@ -15,7 +15,7 @@ const theme = extendTheme({
           main: purple["A700"],
         },
         background: {
-          paper: common["black"],
+          paper: deepPurple[900],
         },
         text: {
           primary: purple["A700"],
